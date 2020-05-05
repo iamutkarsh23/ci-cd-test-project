@@ -1,0 +1,16 @@
+steps: 
+
+#install
+- name: node:8.15.0
+  entrypoint: npm
+  args: ['install']
+
+#test
+- name: node:8.15.0
+  entrypoint: npm
+  args: ['set', 'CI=true', '&&react-scripts', 'test', '--env=jsdom']
+
+#build
+- name: node:8.15.0
+  entrypoint: npm
+  args: ['run', 'build']
