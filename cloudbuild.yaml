@@ -14,3 +14,7 @@ steps:
 - name: node:8.15.0
   entrypoint: npm
   args: ['run', 'build']
+
+#deploy 
+- name: 'gcr.io/ci-cd-test-proj/firebase'
+  args: ['deploy']
