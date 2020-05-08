@@ -1,20 +1,22 @@
 steps: 
 
-#install
-- name: node:8.15.0
-  entrypoint: npm
-  args: ['install']
+# #install
+# - name: node:8.15.0
+#   entrypoint: npm
+#   args: ['install']
 
-#test
-- name: node:8.15.0
-  entrypoint: npm
-  args: ['set', 'CI=true', '&&react-scripts', 'test', '--env=jsdom']
+# #test
+# - name: node:8.15.0
+#   entrypoint: npm
+#   args: ['set', 'CI=true', '&&react-scripts', 'test', '--env=jsdom']
 
-#build
-- name: node:8.15.0
-  entrypoint: npm
-  args: ['run', 'build']
+steps:
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: 'bash'
+  args: [ '-c', 'gcloud secrets versions access latest --secret=BRNKL_DEV_CREDS > echo BRNKL_DEV_CREDS' ]
 
-#deploy 
-- name: 'gcr.io/ci-cd-test-proj/firebase'
-  args: ['deploy']
+# #build
+# - name: node:8.15.0
+#   entrypoint: npm
+#   args: ['run', 'build']
+
