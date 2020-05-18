@@ -10,10 +10,9 @@ steps:
 #   entrypoint: npm
 #   args: ['set', 'CI=true', '&&react-scripts', 'test', '--env=jsdom']
 
-steps:
 - name: gcr.io/cloud-builders/gcloud
   entrypoint: 'bash'
-  args: [ '-c', 'gcloud secrets versions access latest --secret=BRNKL_DEV_CREDS > echo BRNKL_DEV_CREDS' ]
+  args: [ '-c', 'gcloud secrets versions access latest --secret=secret-creds > secret-creds.env' ]
 
 # #build
 # - name: node:8.15.0
