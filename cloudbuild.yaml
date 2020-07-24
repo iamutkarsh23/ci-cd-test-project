@@ -1,21 +1,17 @@
 steps: 
 
-# #install
-# - name: node:8.15.0
-#   entrypoint: npm
-#   args: ['install']
+#install
+- name: node:8.15.0
+  entrypoint: npm
+  args: ['install']
 
-# #test
-# - name: node:8.15.0
-#   entrypoint: npm
-#   args: ['set', 'CI=true', '&&react-scripts', 'test', '--env=jsdom']
+#test
+- name: node:8.15.0
+  entrypoint: npm
+  args: ['set', 'CI=true', '&&react-scripts', 'test', '--env=jsdom']
 
-- name: gcr.io/cloud-builders/gcloud
-  entrypoint: 'bash'
-  args: [ '-c', 'gcloud secrets versions access latest --secret=secret-creds > secret-creds.env' ]
-
-# #build
-# - name: node:8.15.0
-#   entrypoint: npm
-#   args: ['run', 'build']
+#build
+- name: node:8.15.0
+  entrypoint: npm
+  args: ['run', 'build']
 
